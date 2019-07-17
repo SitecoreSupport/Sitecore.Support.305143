@@ -22,10 +22,10 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 
-namespace Sitecore.XA.Feature.Search.Controllers
+namespace Sitecore.Support.XA.Feature.Search.Controllers
 {
     [JsonFormatter]
-    public class SearchController : ApiController
+    public class SupportSearchController : ApiController
     {
         protected ISearchService SearchService
         {
@@ -56,7 +56,7 @@ namespace Sitecore.XA.Feature.Search.Controllers
             get;
         }
 
-        public SearchController()
+        public SupportSearchController()
         {
             SearchService = ServiceLocator.ServiceProvider.GetService<ISearchService>();
             SortingService = ServiceLocator.ServiceProvider.GetService<ISortingService>();
@@ -169,7 +169,7 @@ namespace Sitecore.XA.Feature.Search.Controllers
         }
 
         [ActionName("Suggestions")]
-        public SuggestionsSet GetSuggestions(QueryModel model)
+        public SuggestionsSet GetSuggestions([ModelBinder(BinderType = typeof(QueryModelBinder))]QueryModel model)
         {
             if ((ConfigurationManager.AppSettings.AllKeys.Contains("search:define") ? ConfigurationManager.AppSettings["search:define"] : string.Empty) != "Solr")
             {
