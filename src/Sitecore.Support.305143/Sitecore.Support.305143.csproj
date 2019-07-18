@@ -111,11 +111,16 @@
       <HintPath>..\packages\SC.System.Web.Http.9.0.2\lib\System.Web.Http.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\SC.System.Web.Http.WebHost.9.0.2\lib\System.Web.Http.WebHost.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XA\Feature\Search\Pipelines\Initialize\InitializeRouting.cs" />
     <Compile Include="XA\Feature\Search\Repositories\SearchBoxRepository.cs" />
     <Compile Include="XA\Feature\Search\SupportSearchController.cs" />
     <Compile Include="XA\Foundation\IoC\ServiceCollection\RegisterSupportSearchController.cs" />
